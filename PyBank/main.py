@@ -5,7 +5,7 @@ import csv
 import os
 
 # Path to relevant data file. 
-csvpath_bank = os.path.join('Resources', 'budget_data.csv')
+csvpath_bank = os.path.join('..', 'Resources', 'budget_data.csv')
 
 # Open csv file and set to read. Delimiter is ',' because
 # they're comma-separated values.
@@ -64,13 +64,13 @@ output_path = os.path.join("financial_analysis.csv")
 
 with open(output_path, "w", newline='') as financial_analysis:
     csvwriter = csv.writer(financial_analysis)
-    csvwriter.writerow("Financial Analysis")
-    csvwriter.writerow("----------------------------")
-    csvwriter.writerow(f"Total Months: {count_row_months}")
-    csvwriter.writerow(f"Total Net Profits/Losses: ${net_profits_losses}")
-    csvwriter.writerow(f"Average Change Between Months: ${agg_bw_months}")
-    csvwriter.writerow(f"Greatest Increase in Profits: {greatest_increase_date} (${greatest_increase})")
-    csvwriter.writerow(f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})")
+    csvwriter.writerow(["Financial Analysis"])
+    csvwriter.writerow(["----------------------------"])
+    csvwriter.writerow([f"Total Months: {count_row_months}"])
+    csvwriter.writerow([f"Total Net Profits/Losses: ${net_profits_losses}"])
+    csvwriter.writerow([f"Average Change Between Months: ${agg_bw_months}"])
+    csvwriter.writerow([f"Greatest Increase in Profits: {greatest_increase_date} (${greatest_increase})"])
+    csvwriter.writerow([f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})"])
 
 
 

@@ -4,7 +4,7 @@ import os
 import csv
 import operator
 
-csvpath_poll = os.path.join('Resources', 'election_data.csv')
+csvpath_poll = os.path.join('..', 'Resources', 'election_data.csv')
 
 with open(csvpath_poll, newline='') as csvfile_poll:
     csvreader_poll = csv.reader(csvfile_poll, delimiter=',')
@@ -71,16 +71,18 @@ print("-------------------------")
 print(f"Winner: {winner}")
 print("-------------------------")
 
+output_path = os.path.join("election_results.csv")
+
 with open(output_path, "w", newline='') as election_results:
     csvwriter = csv.writer(election_results)
-    csv.writerow("Election Results")
-    csv.writerow("-------------------------")
-    csv.writerow(f"Total Votes: {total_votes}")
-    csv.writerow("-------------------------")
-    csv.writerow(f"{candidate_names[0]}: {percent_1}% ({tally_1})")
-    csv.writerow(f"{candidate_names[1]}: {percent_2}% ({tally_2})")
-    csv.writerow(f"{candidate_names[2]}: {percent_3}% ({tally_3})")
-    csv.writerow(f"{candidate_names[3]}: {percent_4}% ({tally_4})")
-    csv.writerow("-------------------------")
-    csv.writerow(f"Winner: {winner}")
-    csv.writerow("-------------------------")
+    csvwriter.writerow(["Election Results"])
+    csvwriter.writerow(["-------------------------"])
+    csvwriter.writerow([f"Total Votes: {total_votes}"])
+    csvwriter.writerow(["-------------------------"])
+    csvwriter.writerow([f"{candidate_names[0]}: {percent_1}% ({tally_1})"])
+    csvwriter.writerow([f"{candidate_names[1]}: {percent_2}% ({tally_2})"])
+    csvwriter.writerow([f"{candidate_names[2]}: {percent_3}% ({tally_3})"])
+    csvwriter.writerow([f"{candidate_names[3]}: {percent_4}% ({tally_4})"])
+    csvwriter.writerow(["-------------------------"])
+    csvwriter.writerow([f"Winner: {winner}"])
+    csvwriter.writerow(["-------------------------"])
